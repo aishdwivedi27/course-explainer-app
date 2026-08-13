@@ -15,7 +15,7 @@ class AppTestCase(unittest.TestCase):
     def test_index(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Welcome to the Course Explainer', response.data)
+        self.assertIn(b'Expand Your Knowledge', response.data)
         # Test that course names are displayed
         self.assertIn(b'Introduction to Python', response.data)
         self.assertIn(b'Web Development with Flask', response.data)
