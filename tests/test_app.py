@@ -33,6 +33,15 @@ class AppTestCase(unittest.TestCase):
         self.assertIn(b'Go Programming Essentials', response.data)
         self.assertIn(b'Robert Chen', response.data)
 
+    def test_course_invalid_id_returns_404(self):
+        """Non-numeric course_id should not crash the app"""
+        response = self.app.get('/course/abc')
+        self.assertEqual(response.status_code, 404)
+
+    def test_course_out_of_range_id_returns_404(self):
+        response = self.app.get('/course/999')
+        self.assertEqual(response.status_code, 404)
+
     # Contact Page Tests
     def test_contact_page_loads(self):
         """Test that contact page returns 200 status"""
