@@ -1,8 +1,15 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>{{ course.title }}</title>
+</head>
+<body>
+    {% extends 'layout.html' %}
 
-{% block title %}{{ course.title }}{% endblock %}
-
-{% block content %}
+    {% block content %}
     <div class="course-details">
         <h1>{{ course.title }}</h1>
         <p>{{ course.description }}</p>
@@ -15,4 +22,6 @@
             {% endfor %}
         </ul>
     </div>
-{% endblock %}
+    {% endblock %}
+</body>
+</html>
